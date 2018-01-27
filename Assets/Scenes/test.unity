@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 0.25
-  arcSpeed: 2.5
-  maxDistance: 20
+  arcSpeed: 4
+  maxDistance: 3
   arcPrefab: {fileID: 114854419563839082, guid: 7fbe2e9780c139943988027e8b0ea5fa,
     type: 2}
 --- !u!4 &1143882622

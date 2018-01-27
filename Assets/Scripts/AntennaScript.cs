@@ -93,6 +93,7 @@ public class AntennaScript : MonoBehaviour {
             else
             {
                 arc.IncreaseDistance(arcSpeed * Time.deltaTime);
+                arc.SetAlpha(1f - arc.radius / maxDistance);
             }
         }
     }

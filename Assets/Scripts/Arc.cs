@@ -45,6 +45,11 @@ public class Arc : MonoBehaviour {
         color = c;
     }
 
+    public void SetAlpha(float a)
+    {
+        color.a = a;
+    }
+
     public void SetDistance(float r)
     {
         radius = r;
