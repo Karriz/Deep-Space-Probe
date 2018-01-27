@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AntennaScript : MonoBehaviour {
-    public float interval = 0.5f;
     public float arcSpeed = 5f;
     public float maxDistance = 20f;
 
@@ -19,6 +18,7 @@ public class AntennaScript : MonoBehaviour {
     public float shrinkRate = 0.01f;
 
     private float distance;
+    private float interval;
 
     private float nextSpawnTime;
     private Transform earth;
@@ -36,7 +36,8 @@ public class AntennaScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        arcSpeed -= Time.deltaTime * shrinkRate;
+        arcSpeed -= 0.5f * Time.deltaTime * shrinkRate;
+        interval = 1 / arcSpeed;
         distance += Time.deltaTime * shrinkRate;
         earth.localScale = Vector3.one / distance;
 		if (Input.GetAxis("Horizontal") > 0f)
