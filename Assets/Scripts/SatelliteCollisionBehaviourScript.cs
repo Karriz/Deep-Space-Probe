@@ -24,13 +24,14 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(this.gameover);
+        Debug.Log(gameover);
         if (!this.gameover) { 
             Debug.Log("Collision " + collision.gameObject.name);
             Instantiate(Resources.Load("Explosion", typeof(GameObject)) as GameObject, gameObject.transform, true);
             audioSource.PlayOneShot(Resources.Load<AudioClip>("boom1"));
             Invoke("GameOver", 2);
             transform.Find("Satellite").gameObject.SetActive(false);
+            gameObject.GetComponent<PolygonCollider2D>().enabled = false;
         }
     }
 
