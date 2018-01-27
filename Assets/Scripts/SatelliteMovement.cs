@@ -9,6 +9,7 @@ public class SatelliteMovement : MonoBehaviour {
 	private float delay;
     float size = 2.5f;
     float aspect = 1;
+    private AudioSource audioSource;
 
     // Use this for initialization
     void Start () {
@@ -20,6 +21,7 @@ public class SatelliteMovement : MonoBehaviour {
             aspect = Camera.current.aspect; // width/height
             Debug.Log("Size: " + size);
         }
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
 	// Update is called once per frame
@@ -48,7 +50,9 @@ public class SatelliteMovement : MonoBehaviour {
     float satWidth = 0.2f;
 
 	void moveLeft (){
-      
+        if (!audioSource.isPlaying) {
+            audioSource.Play();
+        }
         if (gameObject.transform.position.x > -size * aspect + satWidth)
         {
             Debug.Log("moveleft position correct" + rb2d.position.ToString());
@@ -64,6 +68,10 @@ public class SatelliteMovement : MonoBehaviour {
 	}
 
 	void moveRight (){
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
         if (gameObject.transform.position.x < size * aspect - satWidth)
         {
             Vector2 movement = new Vector2(1, 0);
@@ -77,3 +85,4 @@ public class SatelliteMovement : MonoBehaviour {
         rb2d.velocity = Vector2.zero;
     }
 }
+

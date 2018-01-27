@@ -6,9 +6,11 @@ public class AsteroidBehaviourScript : MonoBehaviour {
     Vector3 v3_down = new Vector3(0.0f, -0.02f);
     //Vector3 v3_scaleAway = new Vector3(0.5f, 0.5f, 1f);
 
+    private AudioSource audioSource; 
+
     // Use this for initialization
     void Start () {
-		
+        audioSource = gameObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +23,16 @@ public class AsteroidBehaviourScript : MonoBehaviour {
             this.transform.position = new Vector3(p.x / 1.02f, p.y, p.z);
         }
 	}
+
+    private void OnBecameVisible()
+    {
+        if (audioSource) {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+    }
 
     private void OnBecameInvisible()
     {

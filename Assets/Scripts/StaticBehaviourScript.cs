@@ -6,6 +6,8 @@ public class StaticBehaviourScript : MonoBehaviour {
 
     public static float currentDelay;
 
+    private static AudioSource audioSource = null;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,4 +17,12 @@ public class StaticBehaviourScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public static AudioSource getAudioSource() {
+        if (null == StaticBehaviourScript.audioSource) {
+            Debug.Log("creating audiosource");
+            StaticBehaviourScript.audioSource = new AudioSource();
+        }
+        return StaticBehaviourScript.audioSource;
+    }
 }

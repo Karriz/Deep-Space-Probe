@@ -7,10 +7,11 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
 
     public string gameOverScreen;
 
+    private AudioSource audioSource;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        audioSource = gameObject.GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,6 +26,7 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
     {     
         Debug.Log("Collision " + collision.gameObject.name);
         Instantiate(Resources.Load("Explosion", typeof(GameObject)) as GameObject, gameObject.transform);
+        audioSource.PlayOneShot(Resources.Load<AudioClip>("boom1"));
         Invoke("GameOver", 2);
         transform.Find("Satellite").gameObject.SetActive(false);
 

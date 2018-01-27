@@ -26,6 +26,9 @@ public class AntennaScript : MonoBehaviour {
     private float nextSpawnTime;
     private Transform earth;
     private Transform satellite;
+    private AudioClip beepSend;
+    private AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () {
         for (int i = 0; i < 20; i++)
@@ -37,6 +40,8 @@ public class AntennaScript : MonoBehaviour {
         earth.localScale = Vector3.one * startScale;
         distance = startDistance;
         satellite = GameObject.Find("Satellite").transform;
+        beepSend = Resources.Load<AudioClip>("beepsend1");
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -122,6 +127,10 @@ public class AntennaScript : MonoBehaviour {
 
     void SendSignal(int direction)
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(beepSend);
+        }
         sendingSignal = true;
         if (direction == right)
         {
