@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1734720569933480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 10}
+  m_LocalPosition: {x: 0, y: 7, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,4 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AsteroidPrefabs:
-  - {fileID: 1408673979595158, guid: 562375aafe3378b4c8bcb54acac8c759, type: 2}
+  - {fileID: 1842100390590746, guid: d07bc5f2df811bc4f8e56e90e8330b8f, type: 2}
+  - {fileID: 1847961909592868, guid: 11dc71dd81a23d840958566fed104e6e, type: 2}
+  - {fileID: 1145446930892314, guid: 54d4e20d3573e6b4191236af49e34948, type: 2}
+  - {fileID: 1294391507173898, guid: 1affe00b4f163c0419000efad9cb42e1, type: 2}
+  - {fileID: 1705324904058924, guid: 006c79852e581794a8772b5761c7f23c, type: 2}
+  - {fileID: 1705324904058924, guid: 006c79852e581794a8772b5761c7f23c, type: 2}
