@@ -14,11 +14,11 @@ public class AsteroidBehaviourScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         this.transform.Translate(v3_down, Space.World);
-        if (this.transform.position.y < -1) {
+        if (this.transform.position.y < -1.5f) {
             var s = this.transform.localScale;
-            this.transform.localScale = new Vector3(s.x / 1.1f, s.y / 1.1f, s.z);
+            this.transform.localScale = new Vector3(s.x / 1.05f, s.y / 1.05f, s.z);
             var p = this.transform.position;
-            this.transform.position = new Vector3(p.x / 1.05f, p.y, p.z);
+            this.transform.position = new Vector3(p.x / 1.02f, p.y, p.z);
         }
 	}
 
