@@ -40,7 +40,7 @@ public class SatelliteMovement : MonoBehaviour {
             delay = StaticBehaviourScript.currentDelay;
             if (moveHorizontal < 0) Invoke("moveLeft", delay);
             if (moveHorizontal > 0) Invoke("moveRight", delay);
-            if (moveHorizontal == 0) Invoke("Stop", delay);
+            //if (moveHorizontal == 0) Invoke("Stop", delay);
         }
         //rb2d.velocity = Vector2.left;
 	}
@@ -55,8 +55,8 @@ public class SatelliteMovement : MonoBehaviour {
             Vector2 movement = new Vector2(-1, 0);
 
             //Vector3 movement = new Vector3(-0.01f * speed, 0, 0);
-            //rb2d.AddForce (movement * speed);
-            rb2d.velocity = movement * speed;
+            rb2d.AddForce (movement * speed);
+            //rb2d.velocity = movement * speed;
 
             //gameObject.transform.Translate(movement);
             Debug.Log("velocity" + rb2d.velocity.ToString());
@@ -67,8 +67,8 @@ public class SatelliteMovement : MonoBehaviour {
         if (gameObject.transform.position.x < size * aspect - satWidth)
         {
             Vector2 movement = new Vector2(1, 0);
-            //rb2d.AddForce (movement * speed);
-            rb2d.velocity = movement * speed;
+            rb2d.AddForce (movement * speed);
+            //rb2d.velocity = movement * speed;
         } 
 	}
 

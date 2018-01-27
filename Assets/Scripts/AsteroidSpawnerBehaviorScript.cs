@@ -7,14 +7,14 @@ public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
 
     public GameObject[] AsteroidPrefabs;
     float size = 2.5f;
-    float aspect = 1;
+    float aspect = 0.625f;
 
     // Use this for initialization
     void Start () {
    }
 
     private float lastSpawnTime = 0;
-    private float spawnDelay = 4f;
+    private float spawnDelay = 2f;
 
 	// Update is called once per frame
 	void Update () {
