@@ -10,8 +10,8 @@ public class SatelliteMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rb2d = GetComponent<Rigidbody2D> ();
-		delay = 0.05f;
+        rb2d = GetComponent<Rigidbody2D> ();
+        delay = 0.05f;
 	}
 
 	// Update is called once per frame
