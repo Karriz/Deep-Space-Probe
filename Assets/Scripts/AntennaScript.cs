@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AntennaScript : MonoBehaviour {
-    public float interval = 0.5f;
     public float arcSpeed = 5f;
     public float maxDistance = 20f;
 
@@ -15,7 +14,14 @@ public class AntennaScript : MonoBehaviour {
     private List<Arc> inActiveArcs = new List<Arc>();
     private bool sendingSignal = false;
 
+    public float startScale = 0.5f;
+    public float shrinkRate = 0.01f;
+
+    private float distance;
+    private float interval;
+
     private float nextSpawnTime;
+    private Transform earth;
 	// Use this for initialization
 	void Start () {
         for (int i = 0; i < 20; i++)
@@ -23,10 +29,17 @@ public class AntennaScript : MonoBehaviour {
             Arc newArc = Instantiate(arcPrefab).GetComponent<Arc>();
             inActiveArcs.Add(newArc);
         }
+        earth = GameObject.Find("Earth").transform;
+        earth.localScale = Vector3.one * startScale;
+        distance = 1 / startScale;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        arcSpeed -= 0.5f * Time.deltaTime * shrinkRate;
+        interval = 1 / arcSpeed;
+        distance += Time.deltaTime * shrinkRate;
+        earth.localScale = Vector3.one / distance;
 		if (Input.GetAxis("Horizontal") > 0f)
         {
             SendSignal(right);
