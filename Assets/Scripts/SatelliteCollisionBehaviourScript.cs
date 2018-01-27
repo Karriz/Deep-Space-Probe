@@ -36,6 +36,8 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
     }
 
     protected void GameOver() {
+        GameObject.Find("AsteroidSpawner").GetComponent<AudioSource>().Stop();
+
         audioSource.PlayOneShot(Resources.Load<AudioClip>("introtune"));
 
         Debug.Log("gameover");
