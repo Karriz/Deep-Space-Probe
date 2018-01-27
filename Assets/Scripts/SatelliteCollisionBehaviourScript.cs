@@ -12,7 +12,7 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
     private AudioSource audioSource;
 	// Use this for initialization
 	void Start () {
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find("Button");
         canvas.SetActive(false);
         audioSource = gameObject.GetComponent<AudioSource>();
     }

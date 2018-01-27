@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SatelliteMovement : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class SatelliteMovement : MonoBehaviour {
     float size = 2.5f;
     float aspect = 1;
     private AudioSource audioSource;
+    private Text delayText;
 
     // Use this for initialization
     void Start () {
@@ -22,6 +24,7 @@ public class SatelliteMovement : MonoBehaviour {
             Debug.Log("Size: " + size);
         }
         audioSource = gameObject.GetComponent<AudioSource>();
+        delayText = GameObject.Find("DelayText").GetComponent<Text>();
     }
 
 	// Update is called once per frame
@@ -45,7 +48,8 @@ public class SatelliteMovement : MonoBehaviour {
             //if (moveHorizontal == 0) Invoke("Stop", delay);
         }
         //rb2d.velocity = Vector2.left;
-	}
+        delayText.text = StaticBehaviourScript.currentDelay.ToString("F2") + " LIGHT SECONDS AWAY";
+    }
 
     float satWidth = 0.2f;
 
