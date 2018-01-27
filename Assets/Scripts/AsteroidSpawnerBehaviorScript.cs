@@ -11,6 +11,7 @@ public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
    }
 
     private float lastSpawnTime = 0;

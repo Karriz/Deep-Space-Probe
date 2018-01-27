@@ -21,14 +21,10 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
         Debug.DrawLine(new Vector3(-5, StaticBehaviourScript.currentDelay, 0), new Vector3(5, StaticBehaviourScript.currentDelay, 0));
 	}
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {     
         Debug.Log("Collision " + collision.gameObject.name);
-        Instantiate(Resources.Load("Explosion", typeof(GameObject)) as GameObject, gameObject.transform);
+        Instantiate(Resources.Load("Explosion", typeof(GameObject)) as GameObject, gameObject.transform, true);
         audioSource.PlayOneShot(Resources.Load<AudioClip>("boom1"));
         Invoke("GameOver", 2);
         transform.Find("Satellite").gameObject.SetActive(false);
@@ -36,6 +32,8 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
     }
 
     protected void GameOver() {
+        audioSource.PlayOneShot(Resources.Load<AudioClip>("introtune"));
+
         Debug.Log("gameover");
         //SceneManager.LoadScene(gameOverScreen);
         canvas.SetActive(true);

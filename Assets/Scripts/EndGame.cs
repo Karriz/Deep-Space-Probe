@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class EndGame : MonoBehaviour {
 
 	public void onClick () {
+        var sat = GameObject.Find("Satellite");
+        sat.GetComponent<AudioSource>().Stop();
+
 		Scene scene = SceneManager.GetActiveScene ();
 		SceneManager.LoadScene (scene.name);
 	}
