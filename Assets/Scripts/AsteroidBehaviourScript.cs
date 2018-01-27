@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AsteroidBehaviourScript : MonoBehaviour {
-    Vector3 v3_down = new Vector3(0.0f, -0.05f);
+    Vector3 v3_down = new Vector3(0.0f, -0.02f);
     //Vector3 v3_scaleAway = new Vector3(0.5f, 0.5f, 1f);
 
     // Use this for initialization
@@ -24,7 +24,7 @@ public class AsteroidBehaviourScript : MonoBehaviour {
 
     private void OnBecameInvisible()
     {
-        if (this.transform.localPosition.y < 0) {
+        if (this.transform.position.y < 0) {
             Destroy(gameObject, 2);
         }
     }

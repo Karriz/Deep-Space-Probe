@@ -39,6 +39,7 @@ public class AntennaScript : MonoBehaviour {
         arcSpeed -= 0.5f * Time.deltaTime * shrinkRate;
         interval = 1 / arcSpeed;
         distance += Time.deltaTime * shrinkRate;
+        StaticBehaviourScript.currentDelay = distance / arcSpeed;
         earth.localScale = Vector3.one / distance;
 		if (Input.GetAxis("Horizontal") > 0f)
         {

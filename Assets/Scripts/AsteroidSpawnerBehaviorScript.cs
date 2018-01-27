@@ -6,18 +6,22 @@ using UnityEngine.SceneManagement;
 public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
 
     public GameObject[] AsteroidPrefabs;
-	// Use this for initialization
-	void Start () {
+    float size = 2.5f;
+    float aspect = 1;
+
+    // Use this for initialization
+    void Start () {
    }
 
     private float lastSpawnTime = 0;
-    private float spawnDelay = 2f;
+    private float spawnDelay = 4f;
 
 	// Update is called once per frame
 	void Update () {
         float size = 5;
         if (Camera.current) {
             size = Camera.current.orthographicSize;
+            aspect = Camera.current.aspect;
         }
 
         if (lastSpawnTime == 0) {
@@ -33,7 +37,7 @@ public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
             
             Debug.Log(index);
             var asteroid = Instantiate(AsteroidPrefabs[index], gameObject.transform);
-            asteroid.transform.Translate(-size + Random.value * 2 * size, 0, 0);
+            asteroid.transform.Translate(-size/aspect + Random.value * 2 * size/aspect, 0, 10);
             asteroid.transform.Rotate(Vector3.back, Random.value * 360);
             
           }

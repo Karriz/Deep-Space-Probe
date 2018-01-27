@@ -14,7 +14,7 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Debug.DrawLine(new Vector3(-5, StaticBehaviourScript.currentDelay, 0), new Vector3(5, StaticBehaviourScript.currentDelay, 0));
 	}
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -24,11 +24,13 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {     
         Debug.Log("Collision " + collision.gameObject.name);
-        this.GameOver();
+        Instantiate(Resources.Load("Explosion", typeof(GameObject)) as GameObject);
+        Invoke("GameOver", 2);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
     }
 
-    private void GameOver() {
+    protected void GameOver() {
         Debug.Log("gameover");
         SceneManager.LoadScene(gameOverScreen);
     }
