@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SatelliteCollisionBehaviourScript : MonoBehaviour {
 
+    public bool gameover = false;
     public string gameOverScreen;
     GameObject canvas;
 
@@ -22,13 +23,15 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {     
-        Debug.Log("Collision " + collision.gameObject.name);
-        Instantiate(Resources.Load("Explosion", typeof(GameObject)) as GameObject, gameObject.transform, true);
-        audioSource.PlayOneShot(Resources.Load<AudioClip>("boom1"));
-        Invoke("GameOver", 2);
-        transform.Find("Satellite").gameObject.SetActive(false);
-
+    {
+        Debug.Log(this.gameover);
+        if (!this.gameover) { 
+            Debug.Log("Collision " + collision.gameObject.name);
+            Instantiate(Resources.Load("Explosion", typeof(GameObject)) as GameObject, gameObject.transform, true);
+            audioSource.PlayOneShot(Resources.Load<AudioClip>("boom1"));
+            Invoke("GameOver", 2);
+            transform.Find("Satellite").gameObject.SetActive(false);
+        }
     }
 
     protected void GameOver() {
@@ -37,5 +40,6 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
         Debug.Log("gameover");
         //SceneManager.LoadScene(gameOverScreen);
         canvas.SetActive(true);
+        this.gameover = true;
     }
 }

@@ -23,12 +23,17 @@ public class AsteroidBehaviourScript : MonoBehaviour {
             var p = this.transform.position;
             this.transform.position = new Vector3(p.x / 1.01f, p.y, p.z);
         }
+
+        if (this.transform.localScale.magnitude < 0.001) {
+            Destroy(gameObject, 2);
+        }
 	}
 
     private void OnBecameVisible()
     {
         if (gameObject.name.Contains("Whaley"))
         {
+            Debug.Log(gameObject.name);
             if (audioSource)
             {
                 if (!audioSource.isPlaying)
