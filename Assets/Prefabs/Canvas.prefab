@@ -57,8 +57,13 @@ GameObject:
   - component: {fileID: 222295823547939354}
   - component: {fileID: 114260951292504208}
   - component: {fileID: 114926062725273942}
+<<<<<<< HEAD
   - component: {fileID: 114424628321792414}
   - component: {fileID: 114821035927146810}
+=======
+  - component: {fileID: 2569400266190093534}
+  - component: {fileID: 114829509510486418}
+>>>>>>> ce089b4233059b6c65948d5c7049a177e87803c0
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -147,7 +152,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114424628321792414
+--- !u!114 &114829509510486418
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -155,7 +160,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1938198177755092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7b82cac7f7608b4d9a0bfca023a146d, type: 3}
+  m_Script: {fileID: 11500000, guid: ddfc7b4039e4b6344a35e44ddb1f9396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114821035927146810
@@ -208,7 +213,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114424628321792414}
+      - m_Target: {fileID: 114829509510486418}
         m_MethodName: onClick
         m_Mode: 1
         m_Arguments:
@@ -325,3 +330,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!156049354 &2569400266190093534
+Grid:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938198177755092}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 1}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
