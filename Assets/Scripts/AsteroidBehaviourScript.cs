@@ -27,18 +27,31 @@ public class AsteroidBehaviourScript : MonoBehaviour {
 
     private void OnBecameVisible()
     {
-        if (audioSource) {
-            if (!audioSource.isPlaying)
+        if (gameObject.name.Contains("Whaley"))
+        {
+            if (audioSource)
             {
-                audioSource.Play();
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
             }
-        }
+        } 
     }
 
     private void OnBecameInvisible()
     {
         if (this.transform.position.y < 0) {
             Destroy(gameObject, 2);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (gameObject.name.Contains("Lego")) {
+            if (audioSource && !audioSource.isPlaying) {
+                audioSource.Play();
+            }
         }
     }
 }
