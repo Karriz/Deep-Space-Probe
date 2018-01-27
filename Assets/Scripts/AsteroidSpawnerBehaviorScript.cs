@@ -10,20 +10,32 @@ public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
 	void Start () {
    }
 
-    float lastSpawnTime = 0;
+    private float lastSpawnTime = 0;
+    private float spawnDelay = 2f;
 
 	// Update is called once per frame
 	void Update () {
-        
-        Debug.Log("spawner udpate");
+        float size = 5;
+        if (Camera.current) {
+            size = Camera.current.orthographicSize;
+        }
+
         if (lastSpawnTime == 0) {
             lastSpawnTime = Time.time;
         }
-        if (Time.time - lastSpawnTime > 10 && AsteroidPrefabs.Length > 0)
+        if (Time.time - lastSpawnTime > spawnDelay && AsteroidPrefabs.Length > 0)
         {
+            Debug.Log("Camera size: " + size);
+            lastSpawnTime = Time.time;
             Debug.Log("spawn new object");
             //var scene = SceneManager.GetActiveScene();
-            Instantiate(AsteroidPrefabs[Mathf.RoundToInt(Random.value * AsteroidPrefabs.Length-1)]);
-        }
+            int index = Mathf.RoundToInt(Random.value * (AsteroidPrefabs.Length - 1));
+            
+            Debug.Log(index);
+            var asteroid = Instantiate(AsteroidPrefabs[index], gameObject.transform);
+            asteroid.transform.Translate(-size + Random.value * 2 * size, 0, 0);
+            asteroid.transform.Rotate(Vector3.back, Random.value * 360);
+            
+          }
 	}
 }

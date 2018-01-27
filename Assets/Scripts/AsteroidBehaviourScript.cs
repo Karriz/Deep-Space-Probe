@@ -12,6 +12,13 @@ public class AsteroidBehaviourScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.Translate(v3_down);
+        this.transform.Translate(v3_down, Space.World);
 	}
+
+    private void OnBecameInvisible()
+    {
+        if (this.transform.localPosition.y < 0) {
+            Destroy(gameObject, 2);
+        }
+    }
 }
