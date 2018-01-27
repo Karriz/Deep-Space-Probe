@@ -20,13 +20,21 @@ public class SatelliteMovement : MonoBehaviour {
 		delay += Time.fixedDeltaTime * 0.025f;
 		if (moveHorizontal < 0) Invoke ("moveLeft", delay);
 		if (moveHorizontal > 0) Invoke ("moveRight", delay);
+        if (moveHorizontal == 0) Invoke("Stop", delay);
 	}
 	void moveLeft (){
 		Vector2 movement = new Vector2 (-1,0);
-		rb2d.AddForce (movement * speed);
+		//rb2d.AddForce (movement * speed);
+        rb2d.velocity = movement * speed;
 	}
 	void moveRight (){
 		Vector2 movement = new Vector2 (1,0);
-		rb2d.AddForce (movement * speed);
+        //rb2d.AddForce (movement * speed);
+        rb2d.velocity = movement * speed;
 	}
+
+    void Stop()
+    {
+        rb2d.velocity = Vector2.zero;
+    }
 }

@@ -15,7 +15,6 @@ public class AsteroidBehaviourScript : MonoBehaviour {
 	void Update () {
         this.transform.Translate(v3_down, Space.World);
         if (this.transform.position.y < -1) {
-            Debug.Log("scale away");
             var s = this.transform.localScale;
             this.transform.localScale = new Vector3(s.x / 1.1f, s.y / 1.1f, s.z);
             var p = this.transform.position;
