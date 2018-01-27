@@ -13,6 +13,8 @@ public class SatelliteMovement : MonoBehaviour {
     private AudioSource audioSource;
     private Text delayText;
 
+    private Light light;
+
     // Use this for initialization
     void Start () {
         rb2d = GetComponent<Rigidbody2D> ();
@@ -25,6 +27,9 @@ public class SatelliteMovement : MonoBehaviour {
         }
         audioSource = gameObject.GetComponent<AudioSource>();
         delayText = GameObject.Find("DelayText").GetComponent<Text>();
+
+        light = transform.Find("Light").GetComponent<Light>();
+        light.enabled = false;
     }
 
 	// Update is called once per frame
@@ -45,7 +50,7 @@ public class SatelliteMovement : MonoBehaviour {
             delay = StaticBehaviourScript.currentDelay;
             if (moveHorizontal < 0) Invoke("moveLeft", delay);
             if (moveHorizontal > 0) Invoke("moveRight", delay);
-            //if (moveHorizontal == 0) Invoke("Stop", delay);
+            if (moveHorizontal == 0) Invoke("Stop", delay);
         }
         //rb2d.velocity = Vector2.left;
         delayText.text = StaticBehaviourScript.currentDelay.ToString("F2") + " LIGHT SECONDS AWAY";
@@ -54,6 +59,7 @@ public class SatelliteMovement : MonoBehaviour {
     float satWidth = 0.2f;
 
 	void moveLeft (){
+        light.enabled = true;
         if (!audioSource.isPlaying) {
             audioSource.Play();
         }
@@ -72,6 +78,7 @@ public class SatelliteMovement : MonoBehaviour {
 	}
 
 	void moveRight (){
+        light.enabled = true;
         if (!audioSource.isPlaying)
         {
             audioSource.Play();
@@ -86,7 +93,8 @@ public class SatelliteMovement : MonoBehaviour {
 
     void Stop()
     {
-        rb2d.velocity = Vector2.zero;
+        light.enabled = false;
+        //rb2d.velocity = Vector2.zero;
     }
 }
 
