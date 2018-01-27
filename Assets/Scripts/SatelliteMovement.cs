@@ -14,26 +14,26 @@ public class SatelliteMovement : MonoBehaviour {
     void Start () {
         rb2d = GetComponent<Rigidbody2D> ();
         //delay = 0.05f;
-        
-    }
-
-	// Update is called once per frame
-	void FixedUpdate () {
         if (Camera.current)
         {
             size = Camera.current.orthographicSize;
             aspect = Camera.current.aspect; // width/height
+            Debug.Log("Size: " + size);
         }
+    }
+
+	// Update is called once per frame
+	void FixedUpdate () {
         float moveHorizontal = Input.GetAxis ("Horizontal");
         //delay += Time.fixedDeltaTime * 0.025f;
 
         if (gameObject.transform.position.x < -size * aspect)
         {
-            gameObject.transform.position = new Vector3( -size * aspect, gameObject.transform.position.y, 0);
+            gameObject.transform.position = new Vector3( -size * aspect * 0.99f, gameObject.transform.position.y, 0);
         }
         else if (gameObject.transform.position.x > size * aspect)
         {
-            gameObject.transform.position = new Vector3(size * aspect, gameObject.transform.position.y, 0);
+            gameObject.transform.position = new Vector3(size * aspect * 0.99f, gameObject.transform.position.y, 0);
         }
         else
         {

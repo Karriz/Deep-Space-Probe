@@ -26,7 +26,7 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
         Debug.Log("Collision " + collision.gameObject.name);
         Instantiate(Resources.Load("Explosion", typeof(GameObject)) as GameObject, gameObject.transform);
         Invoke("GameOver", 2);
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        transform.Find("Satellite").gameObject.SetActive(false);
 
     }
 

@@ -113,55 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &74265574 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1014110667328098, guid: 46e66c6ea86bcb04f92e6aca169ce921,
-    type: 2}
-  m_PrefabInternal: {fileID: 323509620}
---- !u!114 &74265575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 74265574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2d5788014650e14fa7d13103a6a98f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
---- !u!114 &74265576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 74265574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ab13f86a8bc114486957ec82f01b20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverScreen: 0.1
---- !u!50 &74265577
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 74265574}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 2
 --- !u!1001 &323509620
 Prefab:
   m_ObjectHideFlags: 0
@@ -200,19 +151,6 @@ Prefab:
     - target: {fileID: 4401459414810362, guid: 46e66c6ea86bcb04f92e6aca169ce921, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4401459414810362, guid: 46e66c6ea86bcb04f92e6aca169ce921, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4401459414810362, guid: 46e66c6ea86bcb04f92e6aca169ce921, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 60096785589946718, guid: 46e66c6ea86bcb04f92e6aca169ce921,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46e66c6ea86bcb04f92e6aca169ce921, type: 2}
@@ -391,12 +329,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705c877694c71be4eaade9144f539f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arcSpeed: 2.5
-  maxDistance: 5
+  startDistance: 2
+  maxDistance: 15
+  maxWaveDistance: 5
   arcPrefab: {fileID: 114854419563839082, guid: 7fbe2e9780c139943988027e8b0ea5fa,
     type: 2}
-  startScale: 1.4
-  shrinkRate: 0.01
+  startScale: 1
+  moveRate: 0.1
 --- !u!4 &1143882622
 Transform:
   m_ObjectHideFlags: 0
@@ -530,10 +469,6 @@ Prefab:
     - target: {fileID: 4253584729600038, guid: ae3f6563ca8d65d46bb1facc7c32ebca, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1375378644464204, guid: ae3f6563ca8d65d46bb1facc7c32ebca, type: 2}
-      propertyPath: m_Name
-      value: Earth
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae3f6563ca8d65d46bb1facc7c32ebca, type: 2}
