@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AntennaScript : MonoBehaviour {
-    public float arcSpeed = 5f;
+    private float arcSpeed;
+    public float startDistance = 2f;
     public float maxDistance = 20f;
+
+    public float maxWaveDistance = 5f;
 
     private static int right = 1;
     private static int left = -1;
@@ -14,14 +17,15 @@ public class AntennaScript : MonoBehaviour {
     private List<Arc> inActiveArcs = new List<Arc>();
     private bool sendingSignal = false;
 
-    public float startScale = 0.5f;
-    public float shrinkRate = 0.01f;
+    public float startScale = 1f;
+    public float moveRate = 0.01f;
 
     private float distance;
     private float interval;
 
     private float nextSpawnTime;
     private Transform earth;
+    private Transform satellite;
 	// Use this for initialization
 	void Start () {
         for (int i = 0; i < 20; i++)
@@ -31,16 +35,20 @@ public class AntennaScript : MonoBehaviour {
         }
         earth = GameObject.Find("Earth").transform;
         earth.localScale = Vector3.one * startScale;
-        distance = 1 / startScale;
+        distance = startDistance;
+        satellite = GameObject.Find("Satellite").transform;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        arcSpeed -= 0.5f * Time.deltaTime * shrinkRate;
+        if (distance < maxDistance)
+        {
+            distance += Time.deltaTime * moveRate;
+        }
+        arcSpeed = 10 / distance;
         interval = 1 / arcSpeed;
-        distance += Time.deltaTime * shrinkRate;
-        StaticBehaviourScript.currentDelay = distance / arcSpeed;
-        earth.localScale = Vector3.one / distance;
+        StaticBehaviourScript.currentDelay = (satellite.position.y - transform.position.y) / arcSpeed;
+        earth.localScale = Vector3.one * (startDistance / distance);
 		if (Input.GetAxis("Horizontal") > 0f)
         {
             SendSignal(right);
@@ -107,7 +115,7 @@ public class AntennaScript : MonoBehaviour {
             else
             {
                 arc.IncreaseDistance(arcSpeed * Time.deltaTime);
-                arc.SetAlpha(1f - arc.radius / maxDistance);
+                arc.SetAlpha(1f - arc.radius / maxWaveDistance);
             }
         }
     }

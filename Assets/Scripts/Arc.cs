@@ -5,8 +5,8 @@ using UnityEngine;
 public class Arc : MonoBehaviour {
     LineRenderer lineRenderer;
     public float radius;
-    float startAngle = 3f * Mathf.PI / 8f;
-    float arcAngle = Mathf.PI / 4f;
+    float startAngle = Mathf.PI / 4f;
+    float arcAngle = Mathf.PI / 2f;
     bool activated = false;
     Color color;
     Transform antenna;
