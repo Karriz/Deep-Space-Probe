@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class SatelliteCollisionBehaviourScript : MonoBehaviour {
 
     public string gameOverScreen;
-
-    private AudioSource audioSource;
+	GameObject canvas;
 	// Use this for initialization
 	void Start () {
-        audioSource = gameObject.GetComponent<AudioSource>();
-    }
+		canvas = GameObject.Find ("Canvas");
+		canvas.SetActive (false);
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,7 +26,6 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
     {     
         Debug.Log("Collision " + collision.gameObject.name);
         Instantiate(Resources.Load("Explosion", typeof(GameObject)) as GameObject, gameObject.transform);
-        audioSource.PlayOneShot(Resources.Load<AudioClip>("boom1"));
         Invoke("GameOver", 2);
         transform.Find("Satellite").gameObject.SetActive(false);
 
@@ -34,6 +33,6 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
 
     protected void GameOver() {
         Debug.Log("gameover");
-        SceneManager.LoadScene(gameOverScreen);
+		canvas.SetActive (true);
     }
 }
