@@ -26,6 +26,7 @@ public class SatelliteMovement : MonoBehaviour {
         }
         float moveHorizontal = Input.GetAxis ("Horizontal");
         //delay += Time.fixedDeltaTime * 0.025f;
+
         if (gameObject.transform.position.x < -size * aspect)
         {
             gameObject.transform.position = new Vector3( -size * aspect, gameObject.transform.position.y, 0);
@@ -41,16 +42,24 @@ public class SatelliteMovement : MonoBehaviour {
             if (moveHorizontal > 0) Invoke("moveRight", delay);
             if (moveHorizontal == 0) Invoke("Stop", delay);
         }
+        //rb2d.velocity = Vector2.left;
 	}
 
     float satWidth = 0.2f;
 
 	void moveLeft (){
+      
         if (gameObject.transform.position.x > -size * aspect + satWidth)
-        { 
+        {
+            Debug.Log("moveleft position correct" + rb2d.position.ToString());
             Vector2 movement = new Vector2(-1, 0);
+
+            //Vector3 movement = new Vector3(-0.01f * speed, 0, 0);
             //rb2d.AddForce (movement * speed);
             rb2d.velocity = movement * speed;
+
+            //gameObject.transform.Translate(movement);
+            Debug.Log("velocity" + rb2d.velocity.ToString());
         }
 	}
 
