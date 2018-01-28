@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
 
     public GameObject[] AsteroidPrefabs;
+    public bool isActive;
+
     float size = 2.5f;
     float aspect = 0.625f;
 
@@ -24,8 +26,16 @@ public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
             size = Camera.current.orthographicSize;
             aspect = Camera.current.aspect;
         }
+        if (isActive) {
+            Spawn();
+        }
 
-        if (lastSpawnTime == 0) {
+	}
+
+    void Spawn() {
+        var delay = StaticBehaviourScript.currentDelay;
+        if (lastSpawnTime == 0)
+        {
             lastSpawnTime = Time.time;
         }
         if (Time.time - lastSpawnTime > spawnDelay && AsteroidPrefabs.Length > 0)
@@ -35,12 +45,15 @@ public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
             Debug.Log("spawn new object");
             //var scene = SceneManager.GetActiveScene();
             int index = Mathf.RoundToInt(Random.value * (AsteroidPrefabs.Length - 1));
-            
+            if (index > delay*2) {
+                index = Mathf.RoundToInt(delay*2);
+            }
+
             Debug.Log(index);
             var asteroid = Instantiate(AsteroidPrefabs[index], gameObject.transform);
-            asteroid.transform.Translate(-size/aspect + Random.value * 2 * size/aspect, 0, 10);
+            asteroid.transform.Translate(-size / aspect + Random.value * 2 * size / aspect, 0, 10);
             asteroid.transform.Rotate(Vector3.back, Random.value * 360);
-            
-          }
-	}
+
+        }
+    }
 }

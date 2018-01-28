@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SatelliteCollisionBehaviourScript : MonoBehaviour {
@@ -12,7 +13,7 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
     private AudioSource audioSource;
 	// Use this for initialization
 	void Start () {
-        canvas = GameObject.Find("Button");
+        canvas = GameObject.Find("GameOverPanel");
         canvas.SetActive(false);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
@@ -43,6 +44,11 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
         Debug.Log("gameover");
         //SceneManager.LoadScene(gameOverScreen);
         canvas.SetActive(true);
+        var gameovertext = GameObject.Find("HighScoreText").GetComponent<Text>();
+        gameovertext.text = gameovertext.text.Replace("{score}", StaticBehaviourScript.currentDelay.ToString("F2"));
+        StaticBehaviourScript.SaveHighScore(StaticBehaviourScript.currentDelay);
+        gameovertext.text = gameovertext.text.Replace("{highscore}", StaticBehaviourScript.highScore.ToString("F2"));
+
         this.gameover = true;
     }
 }
