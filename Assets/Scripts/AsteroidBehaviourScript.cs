@@ -6,7 +6,9 @@ public class AsteroidBehaviourScript : MonoBehaviour {
     Vector3 v3_down = new Vector3(0.0f, -0.02f);
     //Vector3 v3_scaleAway = new Vector3(0.5f, 0.5f, 1f);
 
-    public float rotationSpeed = 0; 
+    public float rotationSpeed = 0;
+    public float vanishPosition = -1.8f;
+    public float horizontalVelocity = 0;
 
     private AudioSource audioSource;
     private Rigidbody2D rigidbody;
@@ -15,16 +17,18 @@ public class AsteroidBehaviourScript : MonoBehaviour {
     void Start () {
         audioSource = gameObject.GetComponent<AudioSource>();
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        v3_down.x = horizontalVelocity;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         rigidbody.angularVelocity = rotationSpeed * 45;
 
+        
         this.transform.Translate(v3_down, Space.World);
         //this.transform.Rotate(new Vector3(0, 0, rotationSpeed));
 
-        if (this.transform.position.y < -1.8f) {
+        if (this.transform.position.y < vanishPosition) {
             var s = this.transform.localScale;
             //magic numbers to taste
             this.transform.localScale = new Vector3(s.x / 1.04f, s.y / 1.04f, s.z);
