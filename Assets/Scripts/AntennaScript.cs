@@ -54,7 +54,20 @@ public class AntennaScript : MonoBehaviour {
         interval = 1 / arcSpeed;
         StaticBehaviourScript.currentDelay = (satellite.position.y - transform.position.y) / arcSpeed;
         earth.localScale = Vector3.one * (startDistance / distance);
-		if (Input.GetAxis("Horizontal") > 0f)
+
+        float moveHorizontal = Input.GetAxis("Horizontal");
+
+        //touch me
+        float pos;
+        int width = Screen.width;
+        if (Input.touches.Length > 0)
+        {
+            pos = Input.touches[0].position.x - width / 2;
+            //    Debug.Log("position" + pos);
+            moveHorizontal = pos / (width / 2);
+        }
+
+        if (moveHorizontal > 0f)
         {
             SendSignal(right);
 
@@ -78,7 +91,7 @@ public class AntennaScript : MonoBehaviour {
                 nextSpawnTime = Time.time + interval;
             }
         }
-        else if (Input.GetAxis("Horizontal") < 0f)
+        else if (moveHorizontal < 0f)
         {
             SendSignal(left);
 
