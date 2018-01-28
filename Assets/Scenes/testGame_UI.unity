@@ -8127,10 +8127,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'YOU GOT TO  0.86 LIGHT SECONDS
+  m_Text: 'YOU GOT TO  {score} LIGHT SECONDS
 
 
-    ALL TIME BEST  1.13  LS'
+    ALL TIME BEST  {highscore}  LS'
 --- !u!222 &2132951309
 CanvasRenderer:
   m_ObjectHideFlags: 0
