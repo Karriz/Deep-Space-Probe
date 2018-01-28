@@ -7597,7 +7597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDistance: 2
-  maxDistance: 15
+  maxDistance: 999
   maxWaveDistance: 5
   arcPrefab: {fileID: 114854419563839082, guid: 7fbe2e9780c139943988027e8b0ea5fa,
     type: 2}
