@@ -35,6 +35,18 @@ public class SatelliteMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         float moveHorizontal = Input.GetAxis ("Horizontal");
+        //touch me
+        float pos;
+        int width = Screen.width;
+        if (Input.touches.Length > 0)
+        {
+            pos = Input.touches[0].position.x - width / 2;
+            //    Debug.Log("position" + pos);
+            moveHorizontal = pos / (width / 2);
+        }
+        //pos = Input.mousePosition.x - width / 2;
+        //Debug.Log("position" + pos);
+
         //delay += Time.fixedDeltaTime * 0.025f;
 
         if (gameObject.transform.position.x < -size * aspect)
