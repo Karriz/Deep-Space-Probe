@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 82800674057442528}
   - component: {fileID: 114901867493049854}
   - component: {fileID: 60407620603691784}
+  - component: {fileID: 50940698690142402}
   m_Layer: 0
   m_Name: llama
   m_TagString: Untagged
@@ -114,6 +115,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474999069607136}
   m_Mesh: {fileID: 4300000, guid: 074d1e75e25a76b4a9cb9a971fb09019, type: 3}
+--- !u!50 &50940698690142402
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1070663278630960}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &60407620603691784
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -249,3 +270,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcc6c9a1134c694daf454fa800fd87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 0

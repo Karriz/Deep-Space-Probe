@@ -8016,7 +8016,7 @@ Prefab:
     - target: {fileID: 114636591212294334, guid: e4cb89f2da83e8f4c9a550c674c10192,
         type: 2}
       propertyPath: AsteroidPrefabs.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4695009608251348, guid: e4cb89f2da83e8f4c9a550c674c10192, type: 2}
       propertyPath: m_LocalPosition.x
@@ -8059,7 +8059,8 @@ Prefab:
         type: 2}
       propertyPath: AsteroidPrefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1070663278630960, guid: 3d888348ece179c4eab0d6d73b3a392d,
+        type: 2}
     - target: {fileID: 114636591212294334, guid: e4cb89f2da83e8f4c9a550c674c10192,
         type: 2}
       propertyPath: AsteroidPrefabs.Array.data[4]

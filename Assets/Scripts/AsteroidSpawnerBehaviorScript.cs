@@ -45,14 +45,16 @@ public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
             Debug.Log("spawn new object");
             //var scene = SceneManager.GetActiveScene();
             int index = Mathf.RoundToInt(Random.value * (AsteroidPrefabs.Length - 1));
-            if (index > delay*2) {
-                index = Mathf.RoundToInt(delay*2);
+            if (index > delay*2.5f) {
+                index = Mathf.RoundToInt(delay*2.5f);
             }
 
             Debug.Log(index);
             var asteroid = Instantiate(AsteroidPrefabs[index], gameObject.transform);
             asteroid.transform.Translate(-size / aspect + Random.value * 2 * size / aspect, 0, 10);
             asteroid.transform.Rotate(Vector3.back, Random.value * 360);
+            asteroid.GetComponent<AsteroidBehaviourScript>().rotationSpeed = (-1f + Random.value * 2f) * (1f / (1+Mathf.Pow(index, 2)) );
+             
 
         }
     }

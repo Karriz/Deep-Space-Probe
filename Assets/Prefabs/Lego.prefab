@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4676225685832194}
   - component: {fileID: 61050173598296544}
   - component: {fileID: 114276708357698690}
+  - component: {fileID: 50436914222489312}
   m_Layer: 0
   m_Name: Lego
   m_TagString: Untagged
@@ -113,6 +114,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1941395887306612}
   m_Mesh: {fileID: 4300000, guid: 6c373bcad3dc7174dba773b2c5c02509, type: 3}
+--- !u!50 &50436914222489312
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847961909592868}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61050173598296544
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -149,3 +170,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcc6c9a1134c694daf454fa800fd87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 0

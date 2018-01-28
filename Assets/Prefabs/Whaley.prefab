@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 60111360552162972}
   - component: {fileID: 114545504855404746}
   - component: {fileID: 82877368402042398}
+  - component: {fileID: 50718348910851550}
   m_Layer: 0
   m_Name: Whaley
   m_TagString: Untagged
@@ -67,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1842100390590746}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.20331782, y: 0.20331775, z: 0.20331775}
+  m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_Children:
   - {fileID: 4151493631447384}
   m_Father: {fileID: 0}
@@ -114,6 +115,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432969024936756}
   m_Mesh: {fileID: 4300000, guid: 172ff5b0d2c2f2841867eff9bc5f61f8, type: 3}
+--- !u!50 &50718348910851550
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842100390590746}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &60111360552162972
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -245,3 +266,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcc6c9a1134c694daf454fa800fd87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 0
