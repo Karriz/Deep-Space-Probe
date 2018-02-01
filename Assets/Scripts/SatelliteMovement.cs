@@ -28,8 +28,9 @@ public class SatelliteMovement : MonoBehaviour {
         }
         audioSource = gameObject.GetComponent<AudioSource>();
         delayText = GameObject.Find("DelayText").GetComponent<Text>();
-        delayText.fontSize = StaticBehaviourScript.getScaled(delayText.fontSize);        
-        delayText.SetNativeSize();
+        //delayText.fontSize = StaticBehaviourScript.getScaled(delayText.fontSize);
+        //GameObject.Find("DelayText").GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width/2f, 30f);
+        //delayText.SetNativeSize();
 
         m_light = transform.Find("Light").GetComponent<Light>();
         m_light.enabled = false;
@@ -41,6 +42,12 @@ public class SatelliteMovement : MonoBehaviour {
         //touch me
         float pos;
         int width = Screen.width;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if (Input.touches.Length > 0)
         {
             pos = Input.touches[0].position.x - width / 2;

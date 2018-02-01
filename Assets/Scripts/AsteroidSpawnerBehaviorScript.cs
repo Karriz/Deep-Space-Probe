@@ -25,6 +25,10 @@ public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         StaticBehaviourScript.uiScale = Screen.height / StaticBehaviourScript.defaultWindowHeight;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         float size = 5;
         if (Camera.current) {
             size = Camera.current.orthographicSize;
