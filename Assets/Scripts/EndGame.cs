@@ -15,8 +15,10 @@ public class EndGame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        //GetComponent<RectTransform>().localScale = GetComponent<RectTransform>().localScale * StaticBehaviourScript.uiScale;
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -45,6 +45,9 @@ public class SatelliteCollisionBehaviourScript : MonoBehaviour {
         //SceneManager.LoadScene(gameOverScreen);
         canvas.SetActive(true);
         var gameovertext = GameObject.Find("HighScoreText").GetComponent<Text>();
+        gameovertext.fontSize = StaticBehaviourScript.getScaled(gameovertext.fontSize);
+        gameovertext.SetNativeSize();
+
         gameovertext.text = gameovertext.text.Replace("{score}", StaticBehaviourScript.currentDelay.ToString("F2"));
         StaticBehaviourScript.SaveHighScore(StaticBehaviourScript.currentDelay);
         gameovertext.text =     gameovertext.text.Replace("{highscore}", StaticBehaviourScript.highScore.ToString("F2"));

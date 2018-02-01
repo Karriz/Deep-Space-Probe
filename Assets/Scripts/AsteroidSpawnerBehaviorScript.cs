@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
@@ -12,15 +13,18 @@ public class AsteroidSpawnerBehaviorScript : MonoBehaviour {
     float aspect = 0.625f;
 
     // Use this for initialization
+    [RuntimeInitializeOnLoadMethod]
     void Start () {
-
-   }
+        Debug.Log("Start AsteroidSpawner");
+        StaticBehaviourScript.uiScale = Screen.height / StaticBehaviourScript.defaultWindowHeight;                
+    }
 
     private float lastSpawnTime = 0;
     private float spawnDelay = 4f;
 
 	// Update is called once per frame
 	void Update () {
+        StaticBehaviourScript.uiScale = Screen.height / StaticBehaviourScript.defaultWindowHeight;
         float size = 5;
         if (Camera.current) {
             size = Camera.current.orthographicSize;

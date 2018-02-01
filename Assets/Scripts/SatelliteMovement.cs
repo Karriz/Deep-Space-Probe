@@ -6,18 +6,19 @@ using UnityEngine.UI;
 public class SatelliteMovement : MonoBehaviour {
 
 	public float speed;
-	private Rigidbody2D rb2d;
+	//private Rigidbody2D rb2d;
 	private float delay;
     float size = 2.5f;
     float aspect = 1;
+    
     private AudioSource audioSource;
     private Text delayText;
 
-    private Light light;
+    private Light m_light;
 
     // Use this for initialization
     void Start () {
-        rb2d = GetComponent<Rigidbody2D> ();
+        //rb2d = GetComponent<Rigidbody2D> ();
         //delay = 0.05f;
         if (Camera.current)
         {
@@ -27,9 +28,11 @@ public class SatelliteMovement : MonoBehaviour {
         }
         audioSource = gameObject.GetComponent<AudioSource>();
         delayText = GameObject.Find("DelayText").GetComponent<Text>();
+        delayText.fontSize = StaticBehaviourScript.getScaled(delayText.fontSize);        
+        delayText.SetNativeSize();
 
-        light = transform.Find("Light").GetComponent<Light>();
-        light.enabled = false;
+        m_light = transform.Find("Light").GetComponent<Light>();
+        m_light.enabled = false;
     }
 
 	// Update is called once per frame
@@ -71,26 +74,26 @@ public class SatelliteMovement : MonoBehaviour {
     float satWidth = 0.2f;
 
 	void moveLeft (){
-        light.enabled = true;
+        m_light.enabled = true;
         if (!audioSource.isPlaying) {
             audioSource.Play();
         }
         if (gameObject.transform.position.x > -size * aspect + satWidth)
         {
-            Debug.Log("moveleft position correct" + rb2d.position.ToString());
             Vector2 movement = new Vector2(-1, 0);
 
             //Vector3 movement = new Vector3(-0.01f * speed, 0, 0);
-            rb2d.AddForce (movement * speed);
+            //rb2d.AddForce (movement * speed);
+            GetComponent<Rigidbody2D>().AddForce(movement * speed);
             //rb2d.velocity = movement * speed;
 
             //gameObject.transform.Translate(movement);
-            Debug.Log("velocity" + rb2d.velocity.ToString());
+            //Debug.Log("velocity" + rb2d.velocity.ToString());
         }
 	}
 
 	void moveRight (){
-        light.enabled = true;
+        m_light.enabled = true;
         if (!audioSource.isPlaying)
         {
             audioSource.Play();
@@ -98,14 +101,15 @@ public class SatelliteMovement : MonoBehaviour {
         if (gameObject.transform.position.x < size * aspect - satWidth)
         {
             Vector2 movement = new Vector2(1, 0);
-            rb2d.AddForce (movement * speed);
+            //rb2d.AddForce (movement * speed);
+            GetComponent<Rigidbody2D>().AddForce(movement * speed);
             //rb2d.velocity = movement * speed;
         } 
 	}
 
     void Stop()
     {
-        light.enabled = false;
+        m_light.enabled = false;
         //rb2d.velocity = Vector2.zero;
     }
 }

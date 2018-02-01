@@ -11,18 +11,18 @@ public class AsteroidBehaviourScript : MonoBehaviour {
     public float horizontalVelocity = 0;
 
     private AudioSource audioSource;
-    private Rigidbody2D rigidbody;
+    //private Rigidbody2D rigidbody;
 
     // Use this for initialization
     void Start () {
         audioSource = gameObject.GetComponent<AudioSource>();
-        rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        //rb2d = gameObject.GetComponent<Rigidbody2D>();
         v3_down.x = horizontalVelocity;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        rigidbody.angularVelocity = rotationSpeed * 45;
+        GetComponent<Rigidbody2D>().angularVelocity = rotationSpeed * 45;
 
         
         this.transform.Translate(v3_down, Space.World);

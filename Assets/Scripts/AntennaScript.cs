@@ -15,7 +15,7 @@ public class AntennaScript : MonoBehaviour {
     public Arc arcPrefab;
     private List<Arc> arcs = new List<Arc>();
     private List<Arc> inActiveArcs = new List<Arc>();
-    private bool sendingSignal = false;
+    //private bool sendingSignal = false;
 
     public float startScale = 1f;
     public float moveRate = 0.01f;
@@ -28,6 +28,8 @@ public class AntennaScript : MonoBehaviour {
     private Transform satellite;
     private AudioClip beepSend;
     private AudioSource audioSource;
+    
+
 
 	// Use this for initialization
 	void Start () {
@@ -81,7 +83,7 @@ public class AntennaScript : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log(inActiveArcs.Count);
+                    //Debug.Log(inActiveArcs.Count);
                     newArc = inActiveArcs[0];
                     inActiveArcs.Remove(newArc);
                     newArc.Activate();
@@ -116,7 +118,7 @@ public class AntennaScript : MonoBehaviour {
         }
         else
         {
-            sendingSignal = false;
+    //        sendingSignal = false;
             nextSpawnTime = 0f;
         }
 
@@ -144,7 +146,7 @@ public class AntennaScript : MonoBehaviour {
         {
             audioSource.PlayOneShot(beepSend);
         }
-        sendingSignal = true;
+    //    sendingSignal = true;
         if (direction == right)
         {
 
